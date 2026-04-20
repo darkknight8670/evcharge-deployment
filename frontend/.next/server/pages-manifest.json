@@ -1,0 +1,11 @@
+{
+  "/_app": "pages/_app.js",
+  "/_error": "pages/_error.js",
+  "/_document": "pages/_document.js",
+  "/receiver/complete": "pages/receiver/complete.js",
+  "/profile": "pages/profile.js",
+  "/": "pages/index.js",
+  "/history": "pages/history.js",
+  "/dashboard": "pages/dashboard.js",
+  "/login": "pages/login.js"
+}

@@ -1,0 +1,252 @@
+:root {
+  --bg: #ffffff;
+  --bg-soft: #eaf2ff;
+  --card: #ffffff;
+  --line: rgba(37, 99, 235, 0.22);
+  --text: #10244d;
+  --muted: #4b6394;
+  --green: #2563eb;
+  --amber: #3b82f6;
+  --danger: #ff6f6f;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
+  background:
+    linear-gradient(rgba(240, 247, 255, 0.66), rgba(225, 238, 255, 0.66)),
+    url("/Gemini_Generated_Image_81tazy81tazy81ta.png") center / cover no-repeat fixed;
+  color: var(--text);
+  font-family: "Segoe UI", "Trebuchet MS", sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.page {
+  width: min(1120px, calc(100% - 24px));
+  margin: 18px auto 32px;
+}
+
+.hero {
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  background: linear-gradient(160deg, #ffffff, #ecf4ff);
+  padding: 18px;
+}
+
+.grid {
+  display: grid;
+  gap: 14px;
+}
+
+.grid.two {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.card {
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: var(--card);
+  box-shadow: 0 8px 24px rgba(37, 99, 235, 0.08);
+  padding: 14px;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+}
+
+p.muted {
+  color: var(--muted);
+}
+
+.row {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.kv {
+  display: grid;
+  gap: 8px;
+}
+
+.kv .item {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px dashed rgba(37, 99, 235, 0.14);
+  padding-bottom: 6px;
+}
+
+input,
+select,
+textarea,
+button {
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 10px 12px;
+  font: inherit;
+}
+
+input,
+select,
+textarea {
+  width: 100%;
+  background: #ffffff;
+  color: var(--text);
+}
+
+button {
+  background: #2563eb;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+button.primary {
+  background: linear-gradient(90deg, #2563eb, #3b82f6);
+  color: #ffffff;
+  font-weight: 700;
+}
+
+button.amber {
+  background: linear-gradient(90deg, #3b82f6, #60a5fa);
+  color: #ffffff;
+  font-weight: 700;
+}
+
+button.ghost {
+  background: #eff6ff;
+  color: #1e40af;
+}
+
+.role-green {
+  border-color: rgba(37, 99, 235, 0.4);
+  box-shadow: 0 0 0 1px rgba(37, 99, 235, 0.14) inset;
+}
+
+.role-amber {
+  border-color: rgba(59, 130, 246, 0.42);
+  box-shadow: 0 0 0 1px rgba(59, 130, 246, 0.16) inset;
+}
+
+.pill {
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: #f8fbff;
+  padding: 5px 10px;
+  font-size: 12px;
+  display: inline-flex;
+  align-items: center;
+}
+
+.mono {
+  font-family: Consolas, Menlo, Monaco, monospace;
+}
+
+.progress {
+  width: 100%;
+  height: 10px;
+  border-radius: 999px;
+  background: rgba(37, 99, 235, 0.15);
+  overflow: hidden;
+}
+
+.progress > span {
+  display: block;
+  height: 100%;
+  background: linear-gradient(90deg, #2563eb, #60a5fa);
+}
+
+.log {
+  background: #ffffff;
+  border: 1px solid rgba(37, 99, 235, 0.2);
+  border-radius: 12px;
+  padding: 10px;
+  min-height: 120px;
+  max-height: 220px;
+  overflow: auto;
+}
+
+.log p {
+  margin: 0 0 6px;
+  font-family: Consolas, Menlo, Monaco, monospace;
+  font-size: 12px;
+}
+
+.pulse-wrap {
+  display: grid;
+  place-items: center;
+  min-height: 220px;
+}
+
+.pulse {
+  width: 90px;
+  height: 90px;
+  border-radius: 999px;
+  background: rgba(37, 99, 235, 0.24);
+  position: relative;
+}
+
+.pulse::before,
+.pulse::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 999px;
+  border: 2px solid rgba(71, 213, 125, 0.65);
+  animation: pulse 2.2s infinite;
+}
+
+.pulse::after {
+  animation-delay: 1s;
+}
+
+@keyframes pulse {
+  from {
+    transform: scale(1);
+    opacity: 0.9;
+  }
+  to {
+    transform: scale(2.8);
+    opacity: 0;
+  }
+}
+
+.map-mini {
+  height: 170px;
+  border-radius: 14px;
+  border: 1px solid var(--line);
+  background: linear-gradient(35deg, rgba(241, 246, 255, 0.95), rgba(248, 251, 255, 0.9)), repeating-linear-gradient(0deg, rgba(37, 99, 235, 0.05) 0 1px, transparent 1px 24px), repeating-linear-gradient(90deg, rgba(37, 99, 235, 0.05) 0 1px, transparent 1px 24px);
+  display: grid;
+  place-items: center;
+}
+
+.badge-open {
+  color: #8dd0ff;
+}
+
+.badge-matched {
+  color: #9daec5;
+}
+
+.feed-item.matched {
+  opacity: 0.55;
+}
+
+@media (max-width: 860px) {
+  .grid.two {
+    grid-template-columns: 1fr;
+  }
+}

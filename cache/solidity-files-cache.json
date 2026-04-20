@@ -1,0 +1,151 @@
+{
+  "_format": "hh-sol-cache-2",
+  "files": {
+    "C:\\Users\\vikas\\Desktop\\frontededpwithblockchain - Copy\\contracts\\EVChargingEscrow.sol": {
+      "lastModificationDate": 1775809306239,
+      "contentHash": "4b0d8d9fcf7e1898195213413632d590",
+      "sourceName": "contracts/EVChargingEscrow.sol",
+      "solcConfig": {
+        "version": "0.8.28",
+        "settings": {
+          "evmVersion": "paris",
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.20"
+      ],
+      "artifacts": [
+        "EVChargingEscrow",
+        "IUserregistry"
+      ]
+    },
+    "C:\\Users\\vikas\\Desktop\\frontededpwithblockchain - Copy\\contracts\\VehicleRegistry.sol": {
+      "lastModificationDate": 1775809306252,
+      "contentHash": "5081932618cd9bf4a3c86f371b7153f1",
+      "sourceName": "contracts/VehicleRegistry.sol",
+      "solcConfig": {
+        "version": "0.8.28",
+        "settings": {
+          "evmVersion": "paris",
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.20"
+      ],
+      "artifacts": [
+        "Userregistry"
+      ]
+    },
+    "C:\\Users\\vikas\\Downloads\\frontededpwithblockchain - Copy\\contracts\\EVChargingEscrow.sol": {
+      "lastModificationDate": 1775809306239,
+      "contentHash": "4b0d8d9fcf7e1898195213413632d590",
+      "sourceName": "contracts/EVChargingEscrow.sol",
+      "solcConfig": {
+        "version": "0.8.28",
+        "settings": {
+          "evmVersion": "paris",
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.20"
+      ],
+      "artifacts": [
+        "EVChargingEscrow",
+        "IUserregistry"
+      ]
+    },
+    "C:\\Users\\vikas\\Downloads\\frontededpwithblockchain - Copy\\contracts\\VehicleRegistry.sol": {
+      "lastModificationDate": 1775809306252,
+      "contentHash": "5081932618cd9bf4a3c86f371b7153f1",
+      "sourceName": "contracts/VehicleRegistry.sol",
+      "solcConfig": {
+        "version": "0.8.28",
+        "settings": {
+          "evmVersion": "paris",
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.20"
+      ],
+      "artifacts": [
+        "Userregistry"
+      ]
+    }
+  }
+}

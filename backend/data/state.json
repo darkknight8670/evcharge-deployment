@@ -1,0 +1,214 @@
+{
+  "sessions": {
+    "0x389f141512610d5db0a55ca8924405dc842ae0f1": {
+      "address": "0x389f141512610d5Db0A55cA8924405Dc842AE0F1",
+      "name": "lfjk",
+      "email": "23bcs263@iiitdmj.ac.in",
+      "evModel": "dge",
+      "batteryCapacity": "50",
+      "updatedAt": 1776714574599
+    },
+    "0x8a8fca75b671077cd4db0cdb3eaae0982e174b5b": {
+      "address": "0x8A8fCa75b671077CD4dB0cDB3EaaE0982e174b5B",
+      "name": "vikas",
+      "email": "barupalrekha3@gmail.com",
+      "evModel": "tesla",
+      "batteryCapacity": "50",
+      "updatedAt": 1776714372682
+    },
+    "0xf16a2ade33a22edefb6f361e28bfd223a7aac9bf": {
+      "address": "0xf16a2aDe33A22eDeFB6f361e28BFD223a7aac9bf",
+      "name": "lfjk",
+      "email": "23bcs263@iiitdmj.ac.in",
+      "evModel": "dge",
+      "batteryCapacity": "50",
+      "updatedAt": 1776716043908
+    },
+    "0x53005ba924a5b13ff47a65854bfb29a78d142fd0": {
+      "address": "0x53005BA924A5B13ff47A65854BFB29A78d142fD0",
+      "name": "panday",
+      "email": "23bcs263@iiitdmj.ac.in",
+      "evModel": "dge",
+      "batteryCapacity": "50",
+      "updatedAt": 1775850168502
+    }
+  },
+  "broadcasts": {
+    "11": {
+      "id": "11",
+      "address": "0x8A8fCa75b671077CD4dB0cDB3EaaE0982e174b5B",
+      "kwhRequired": "20",
+      "tokenRate": "1000000000000000",
+      "lat": "23.176680",
+      "lng": "80.019417",
+      "radiusKm": "3",
+      "status": "BROADCASTING",
+      "updatedAt": 1775828071469
+    },
+    "12": {
+      "id": "12",
+      "address": "0x8A8fCa75b671077CD4dB0cDB3EaaE0982e174b5B",
+      "kwhRequired": "20",
+      "tokenRate": "1000000000000000",
+      "lat": "23.176873",
+      "lng": "80.019346",
+      "radiusKm": "3",
+      "status": "BROADCASTING",
+      "updatedAt": 1775846239417
+    },
+    "13": {
+      "id": "13",
+      "address": "0x8A8fCa75b671077CD4dB0cDB3EaaE0982e174b5B",
+      "kwhRequired": "20",
+      "tokenRate": "1000",
+      "lat": "23.177365",
+      "lng": "80.024309",
+      "radiusKm": "3",
+      "status": "BROADCASTING",
+      "updatedAt": 1775849850985
+    },
+    "14": {
+      "id": "14",
+      "address": "0x8A8fCa75b671077CD4dB0cDB3EaaE0982e174b5B",
+      "kwhRequired": "20",
+      "tokenRate": "1000000000000000",
+      "lat": "23.177365",
+      "lng": "80.024309",
+      "radiusKm": "3",
+      "status": "BROADCASTING",
+      "updatedAt": 1775850534442
+    },
+    "15": {
+      "id": "15",
+      "address": "0x8A8fCa75b671077CD4dB0cDB3EaaE0982e174b5B",
+      "kwhRequired": "20",
+      "tokenRate": "10000",
+      "lat": "23.176873",
+      "lng": "80.019346",
+      "radiusKm": "3",
+      "status": "BROADCASTING",
+      "updatedAt": 1775851333769
+    },
+    "16": {
+      "id": "16",
+      "address": "0x8A8fCa75b671077CD4dB0cDB3EaaE0982e174b5B",
+      "kwhRequired": "20",
+      "tokenRate": "100000",
+      "lat": "23.177365",
+      "lng": "80.024309",
+      "radiusKm": "3",
+      "status": "BROADCASTING",
+      "updatedAt": 1775851555320
+    },
+    "17": {
+      "id": "17",
+      "address": "0x8A8fCa75b671077CD4dB0cDB3EaaE0982e174b5B",
+      "kwhRequired": "20",
+      "tokenRate": "1000000000000000",
+      "lat": "23.175760",
+      "lng": "80.025368",
+      "radiusKm": "3",
+      "status": "BROADCASTING",
+      "updatedAt": 1775887132261
+    },
+    "21": {
+      "id": "21",
+      "address": "0x8A8fCa75b671077CD4dB0cDB3EaaE0982e174b5B",
+      "kwhRequired": "20",
+      "tokenRate": "1000000000000000",
+      "lat": null,
+      "lng": null,
+      "radiusKm": "3",
+      "status": "BROADCASTING",
+      "updatedAt": 1776715868757
+    }
+  },
+  "profiles": {
+    "0x389f141512610d5db0a55ca8924405dc842ae0f1": {
+      "address": "0x389f141512610d5Db0A55cA8924405Dc842AE0F1",
+      "name": "lfjk",
+      "email": "23bcs263@iiitdmj.ac.in",
+      "evModel": "dge",
+      "batteryCapacity": "50",
+      "updatedAt": 1776714574600
+    },
+    "0x8a8fca75b671077cd4db0cdb3eaae0982e174b5b": {
+      "address": "0x8A8fCa75b671077CD4dB0cDB3EaaE0982e174b5B",
+      "name": "vikas",
+      "email": "barupalrekha3@gmail.com",
+      "evModel": "tesla",
+      "batteryCapacity": "50",
+      "updatedAt": 1776714372683
+    },
+    "0xf16a2ade33a22edefb6f361e28bfd223a7aac9bf": {
+      "address": "0xf16a2aDe33A22eDeFB6f361e28BFD223a7aac9bf",
+      "name": "lfjk",
+      "email": "23bcs263@iiitdmj.ac.in",
+      "evModel": "dge",
+      "batteryCapacity": "50",
+      "updatedAt": 1776716043910
+    },
+    "0x53005ba924a5b13ff47a65854bfb29a78d142fd0": {
+      "address": "0x53005BA924A5B13ff47A65854BFB29A78d142fD0",
+      "name": "panday",
+      "email": "23bcs263@iiitdmj.ac.in",
+      "evModel": "dge",
+      "batteryCapacity": "50",
+      "updatedAt": 1775850168504
+    }
+  },
+  "requestProgress": {
+    "11": {
+      "soc": 100,
+      "started": true,
+      "completed": true,
+      "completedAt": 1775828195783,
+      "updatedAt": 1775828195783
+    },
+    "12": {
+      "soc": 100,
+      "started": true,
+      "completed": true,
+      "completedAt": 1775846345134,
+      "updatedAt": 1775846345134
+    },
+    "13": {
+      "soc": 100,
+      "started": true,
+      "completed": true,
+      "completedAt": 1775850003532,
+      "updatedAt": 1775850003532
+    },
+    "14": {
+      "soc": 100,
+      "started": true,
+      "completed": true,
+      "completedAt": 1775850662188,
+      "updatedAt": 1775850662188
+    },
+    "16": {
+      "started": true,
+      "completed": true,
+      "soc": 100,
+      "paymentTxHash": "0x7dc63aa6e007d1a801b2ad17cf9a636bbfb183edc85b95f116ef50120cc47f80",
+      "updatedAt": 1775852056063,
+      "completedAt": 1775852045974
+    },
+    "17": {
+      "started": true,
+      "completed": true,
+      "soc": 100,
+      "paymentTxHash": "0x35b9e3850589472c09b19d6d31a4cd5a6040556d3b8ec66b98ff747eec9c6ebc",
+      "updatedAt": 1775887225512,
+      "completedAt": 1775887215055
+    },
+    "21": {
+      "started": true,
+      "completed": true,
+      "soc": 100,
+      "paymentTxHash": "0x8372dc110dc1109716959e611e771054aa226056904ed18ca347bba6e0475f5b",
+      "updatedAt": 1776715960389,
+      "completedAt": 1776715949787
+    }
+  }
+}
