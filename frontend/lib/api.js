@@ -103,7 +103,7 @@ export async function updateSessionProgress(id, soc) {
   });
 }
 
-export async function startSessionCharging(id) {
+export async function startCharging(id) {
   return request(`/api/session/${id}/start`, {
     method: "POST",
   });
