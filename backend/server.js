@@ -27,6 +27,9 @@ const {
   setRequestProgress,
   getRequestProgress,
   listRequestProgress,
+  setTelemetry,
+  getTelemetry,
+  listTelemetry,
 } = require("./services/store");
 
 require("dotenv").config();
@@ -34,6 +37,10 @@ require("dotenv").config();
 const app = express();
 const port = Number(process.env.BACKEND_PORT || 4000);
 const ADMIN_WALLET = "0x389f141512610d5Db0A55cA8924405Dc842AE0F1".toLowerCase();
+const CONTROL_SERVER_BASE_URL = process.env.CONTROL_SERVER_URL || "http://127.0.0.1:5000";
+const CONTROL_SERVER_ON_PATH = process.env.CONTROL_SERVER_ON_PATH || "/on";
+const CONTROL_SERVER_OFF_PATH = process.env.CONTROL_SERVER_OFF_PATH || "/off";
+const CONTROL_SERVER_TIMEOUT_MS = Number(process.env.CONTROL_SERVER_TIMEOUT_MS || 5000);
 
 app.use(cors());
 app.use(express.json({ limit: "1mb" }));
@@ -55,6 +62,20 @@ function addLog(message, level = "info") {
 
 function adminAccessGranted(address) {
   return String(address || "").toLowerCase() === ADMIN_WALLET;
+}
+
+function normalizeTelemetryPayload(body = {}) {
+  const voltage = Number(body.voltage);
+  const current = Number(body.current);
+  const power = Number(body.power);
+  const timestamp = body.timestamp ? String(body.timestamp) : new Date().toLocaleTimeString();
+
+  return {
+    voltage: Number.isFinite(voltage) ? voltage : null,
+    current: Number.isFinite(current) ? current : null,
+    power: Number.isFinite(power) ? power : null,
+    timestamp,
+  };
 }
 
 async function resolveRequiredEnergyKwh(requestId) {
@@ -133,6 +154,62 @@ function stopSimulation(requestId) {
   }
 }
 
+function normalizeControlPath(path) {
+  const value = String(path || "").trim();
+  if (!value) {
+    return "/";
+  }
+  return value.startsWith("/") ? value : `/${value}`;
+}
+
+async function sendControlSignal(action, requestId) {
+  if (typeof fetch !== "function") {
+    throw new Error("Global fetch is unavailable on this Node.js runtime");
+  }
+
+  const controlPath = action === "on" ? CONTROL_SERVER_ON_PATH : CONTROL_SERVER_OFF_PATH;
+  const endpoint = new URL(normalizeControlPath(controlPath), CONTROL_SERVER_BASE_URL).toString();
+  const controller = new AbortController();
+  const timeout = setTimeout(() => controller.abort(), CONTROL_SERVER_TIMEOUT_MS);
+
+  try {
+    const response = await fetch(endpoint, {
+      method: "GET",
+      signal: controller.signal,
+    });
+
+    if (!response.ok) {
+      throw new Error(`Control server responded with ${response.status}`);
+    }
+
+    const message = `[CONTROL] Request #${requestId} -> ${action.toUpperCase()} (${endpoint})`;
+    console.log(message);
+    addLog(message);
+  } catch (error) {
+    const message = `[CONTROL] Request #${requestId} -> ${action.toUpperCase()} failed: ${error.message}`;
+    console.log(message);
+    addLog(message, "error");
+    throw new Error(`Charging control signal ${action.toUpperCase()} failed: ${error.message}`);
+  } finally {
+    clearTimeout(timeout);
+  }
+}
+
+function buildSimulatedTelemetry(soc) {
+  const boundedSoc = Math.max(0, Math.min(100, Number(soc || 0)));
+  const voltage = Number((228 + (boundedSoc / 100) * 8).toFixed(1));
+  const current = Number((8 + (boundedSoc / 100) * 7).toFixed(1));
+  const power = Number((voltage * current).toFixed(1));
+
+  return {
+    voltage,
+    current,
+    power,
+    timestamp: new Date().toLocaleTimeString(),
+    source: "sim",
+  };
+}
+
 async function runChargingSimulation(requestId) {
   const requiredKwh = await resolveRequiredEnergyKwh(requestId);
   if (!Number.isFinite(requiredKwh) || requiredKwh <= 0) {
@@ -145,6 +222,7 @@ async function runChargingSimulation(requestId) {
     started: true,
     completed: false,
     soc: 0,
+    telemetry: buildSimulatedTelemetry(0),
     paymentTxHash: null,
     updatedAt: Date.now(),
   });
@@ -166,10 +244,18 @@ async function runChargingSimulation(requestId) {
       started,
       completed,
       completedAt: completed ? Date.now() : null,
+      telemetry: current.telemetry && current.telemetry.source !== "sim"
+        ? current.telemetry
+        : buildSimulatedTelemetry(nextSoc),
     };
 
     if (completed) {
       stopSimulation(requestId);
+      try {
+        await sendControlSignal("off", requestId);
+      } catch {
+        // Completion flow should continue even if hardware off command fails.
+      }
       try {
         const paymentTxHash = await completeChargingOnChain(requestId, Math.round(requiredKwh));
         payload.paymentTxHash = paymentTxHash;
@@ -210,8 +296,8 @@ app.get("/api/contracts", async (_, res) => {
     res.json({
       addresses: getAddresses(),
       abis: {
-        escrow: getAbi(require("path").join(__dirname, "..", "artifacts", "contracts", "EVChargingEscrow.sol", "EVChargingEscrow.json")),
-        registry: getAbi(require("path").join(__dirname, "..", "artifacts", "contracts", "VehicleRegistry.sol", "Userregistry.json")),
+        escrow: getAbi(require("path").join(__dirname, "data", "abis", "EVChargingEscrow.json")),
+        registry: getAbi(require("path").join(__dirname, "data", "abis", "Userregistry.json")),
       },
       chainId,
       rpcUrl,
@@ -417,12 +503,21 @@ app.get("/api/donor/feed", async (_, res) => {
 
 app.get("/api/session/:id", async (req, res) => {
   try {
-    const onChain = await readRequest(getEscrowContract(), req.params.id);
-    const local = getBroadcast(req.params.id);
-    const progress = getRequestProgress(req.params.id) || {};
+    const requestId = String(req.params.id);
+    const onChain = await readRequest(getEscrowContract(), requestId);
+    const local = getBroadcast(requestId);
+    const progress = getRequestProgress(requestId) || {};
+    const latestTelemetry = getTelemetry("latest");
+    const requestTelemetry = getTelemetry(requestId);
+    const telemetry =
+      progress.telemetry
+      || requestTelemetry
+      || latestTelemetry
+      || (progress.started ? buildSimulatedTelemetry(progress.soc || 0) : null);
+    const effectiveProgress = telemetry ? { ...progress, telemetry } : progress;
     const effectiveStatus = Math.max(
       Number(onChain.status || 0),
-      progress.completed ? 3 : progress.started ? 2 : 0,
+      effectiveProgress.completed ? 3 : effectiveProgress.started ? 2 : 0,
     );
 
     res.json({
@@ -432,13 +527,16 @@ app.get("/api/session/:id", async (req, res) => {
         effectiveStatusLabel: ["OPEN", "ACCEPTED", "CHARGING", "COMPLETED"][effectiveStatus] || onChain.statusLabel,
       },
       local,
-      progress,
+      progress: effectiveProgress,
       escrowSteps: [
         { step: "Escrow funded", done: Number(onChain.escrowBalance) > 0 || onChain.status >= 1 },
         { step: "Donor accepted", done: onChain.status >= 1 },
-        { step: "Charging started", done: onChain.status >= 2 || !!progress.started },
-        { step: "Session completed", done: onChain.status >= 3 || !!progress.completed },
+        { step: "Charging started", done: onChain.status >= 2 || !!effectiveProgress.started },
+        { step: "Session completed", done: onChain.status >= 3 || !!effectiveProgress.completed },
       ],
+      control: {
+        simulating: chargingTimers.has(requestId),
+      },
     });
   } catch (error) {
     res.status(500).json({ error: error.message });
@@ -457,8 +555,28 @@ app.post("/api/session/:id/start", async (req, res) => {
     }
 
     await startChargingOnChain(requestId);
+    await sendControlSignal("on", requestId);
     await runChargingSimulation(requestId);
     res.json({ ok: true, id: requestId, started: true, completed: false });
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
+
+app.post("/api/session/:id/stop", async (req, res) => {
+  try {
+    const requestId = String(req.params.id);
+    stopSimulation(requestId);
+    await sendControlSignal("off", requestId);
+
+    const previous = getRequestProgress(requestId) || {};
+    setRequestProgress(requestId, {
+      started: false,
+      completed: Boolean(previous.completed),
+      stoppedAt: Date.now(),
+    });
+
+    res.json({ ok: true, id: requestId, started: false, completed: Boolean(previous.completed) });
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
@@ -490,6 +608,9 @@ app.post("/api/session/:id/progress", async (req, res) => {
       started,
       completed,
       completedAt: completed ? Date.now() : null,
+      telemetry: previous.telemetry && previous.telemetry.source !== "sim"
+        ? previous.telemetry
+        : buildSimulatedTelemetry(boundedSoc),
     };
 
     if (completed && !previous.completed) {
@@ -509,6 +630,44 @@ app.post("/api/session/:id/progress", async (req, res) => {
     setRequestProgress(requestId, progressPayload);
 
     res.json({ ok: true, id: requestId, soc: boundedSoc, started, completed, paymentTxHash: progressPayload.paymentTxHash || null });
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
+
+app.post("/api/pi/telemetry", async (req, res) => {
+  try {
+    const requestId = req.body?.requestId ?? req.body?.sessionId ?? null;
+    const telemetry = normalizeTelemetryPayload(req.body || {});
+    const receivedAt = Date.now();
+    const record = {
+      ...telemetry,
+      requestId: requestId ? String(requestId) : null,
+      receivedAt,
+    };
+
+    setTelemetry("latest", record);
+
+    if (requestId) {
+      setTelemetry(String(requestId), record);
+      setRequestProgress(String(requestId), {
+        telemetry: record,
+        updatedAt: receivedAt,
+      });
+    }
+
+    res.json({ ok: true, telemetry: record });
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
+
+app.get("/api/pi/telemetry", async (_, res) => {
+  try {
+    res.json({
+      latest: getTelemetry("latest"),
+      history: listTelemetry(),
+    });
   } catch (error) {
     res.status(500).json({ error: error.message });
   }

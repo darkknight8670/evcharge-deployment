@@ -7,6 +7,7 @@ const sessions = new Map();
 const broadcasts = new Map();
 const profiles = new Map();
 const requestProgress = new Map();
+const telemetry = new Map();
 
 function loadState() {
   try {
@@ -25,6 +26,9 @@ function loadState() {
     for (const [key, value] of Object.entries(data.requestProgress || {})) {
       requestProgress.set(String(key), value);
     }
+    for (const [key, value] of Object.entries(data.telemetry || {})) {
+      telemetry.set(String(key), value);
+    }
   } catch {
     // First run or invalid file; start with empty in-memory store.
   }
@@ -36,6 +40,7 @@ function persistState() {
     broadcasts: Object.fromEntries(broadcasts.entries()),
     profiles: Object.fromEntries(profiles.entries()),
     requestProgress: Object.fromEntries(requestProgress.entries()),
+    telemetry: Object.fromEntries(telemetry.entries()),
   };
 
   fs.writeFileSync(statePath, JSON.stringify(payload, null, 2));
@@ -114,6 +119,24 @@ function listRequestProgress() {
     .sort((a, b) => Number(b.updatedAt || 0) - Number(a.updatedAt || 0));
 }
 
+function setTelemetry(id, payload) {
+  telemetry.set(String(id), {
+    ...payload,
+    updatedAt: Date.now(),
+  });
+  persistState();
+}
+
+function getTelemetry(id) {
+  return telemetry.get(String(id)) || null;
+}
+
+function listTelemetry() {
+  return Array.from(telemetry.entries())
+    .map(([id, value]) => ({ id, ...value }))
+    .sort((a, b) => Number(b.updatedAt || 0) - Number(a.updatedAt || 0));
+}
+
 module.exports = {
   getSession,
   listSessions,
@@ -127,4 +150,7 @@ module.exports = {
   setRequestProgress,
   getRequestProgress,
   listRequestProgress,
+  setTelemetry,
+  getTelemetry,
+  listTelemetry,
 };

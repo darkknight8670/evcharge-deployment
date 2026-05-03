@@ -109,6 +109,12 @@ export async function startSessionCharging(id) {
   });
 }
 
+export async function stopCharging(id) {
+  return request(`/api/session/${id}/stop`, {
+    method: "POST",
+  });
+}
+
 export async function getHistory(address) {
   return request(`/api/history/${address}`);
 }

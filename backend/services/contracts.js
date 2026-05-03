@@ -3,12 +3,12 @@ const path = require("path");
 const dotenv = require("dotenv");
 const { ethers } = require("ethers");
 
-const rootDir = path.join(__dirname, "..", "..");
-dotenv.config({ path: path.join(rootDir, ".env") });
+const rootDir = path.join(__dirname, "..");
+dotenv.config({ path: path.join(__dirname, "..", "..", ".env") }); // Fallback to root .env if it exists
 
-const addressesPath = path.join(rootDir, "Addresses.json");
-const escrowArtifactPath = path.join(rootDir, "artifacts", "contracts", "EVChargingEscrow.sol", "EVChargingEscrow.json");
-const registryArtifactPath = path.join(rootDir, "artifacts", "contracts", "VehicleRegistry.sol", "Userregistry.json");
+const addressesPath = path.join(rootDir, "data", "Addresses.json");
+const escrowArtifactPath = path.join(rootDir, "data", "abis", "EVChargingEscrow.json");
+const registryArtifactPath = path.join(rootDir, "data", "abis", "Userregistry.json");
 
 const statusLabels = ["OPEN", "ACCEPTED", "CHARGING", "COMPLETED", "CANCELED", "REFUNDED"];
 
@@ -31,7 +31,13 @@ function readJson(filePath, fallbackValue = {}) {
 }
 
 function getAddresses() {
-  return readJson(addressesPath, {});
+  const json = readJson(addressesPath, {});
+  return {
+    UserRegistry: process.env.REGISTRY_ADDRESS || process.env.USER_REGISTRY_ADDRESS || json.UserRegistry,
+    EVChargingEscrow: process.env.ESCROW_ADDRESS || json.EVChargingEscrow,
+    Validator: process.env.VALIDATION_ADDRESS || json.Validator,
+    FeeReceiver: process.env.FEE_RECEIVER_ADDRESS || json.FeeReceiver,
+  };
 }
 
 function getAbi(filePath) {

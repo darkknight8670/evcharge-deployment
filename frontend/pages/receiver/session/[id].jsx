@@ -43,6 +43,7 @@ export default function ReceiverSessionPage() {
   }, [id, router]);
 
   const steps = useMemo(() => payload?.escrowSteps || [], [payload]);
+  const telemetry = payload?.progress?.telemetry || null;
 
   return (
     <Shell title={`Receiver Live Session #${id || ""}`} subtitle="SOC charging, escrow steps, and live monospace log.">
@@ -64,7 +65,15 @@ export default function ReceiverSessionPage() {
         </article>
 
         <article className="card">
-          <h3>Live log</h3>
+          <h3>Pi telemetry</h3>
+          <div className="kv" style={{ marginTop: 8 }}>
+            <div className="item"><span>Voltage</span><span>{telemetry?.voltage ?? "-"} V</span></div>
+            <div className="item"><span>Current</span><span>{telemetry?.current ?? "-"} A</span></div>
+            <div className="item"><span>Power</span><span>{telemetry?.power ?? "-"} W</span></div>
+            <div className="item"><span>Source time</span><span>{telemetry?.timestamp || "-"}</span></div>
+          </div>
+
+          <h3 style={{ marginTop: 16 }}>Live log</h3>
           <div className="log" style={{ marginTop: 10 }}>
             {log.map((line, index) => <p key={`${line}-${index}`}>{line}</p>)}
           </div>

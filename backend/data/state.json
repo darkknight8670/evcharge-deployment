@@ -2,27 +2,27 @@
   "sessions": {
     "0x389f141512610d5db0a55ca8924405dc842ae0f1": {
       "address": "0x389f141512610d5Db0A55cA8924405Dc842AE0F1",
-      "name": "lfjk",
+      "name": "v",
       "email": "23bcs263@iiitdmj.ac.in",
       "evModel": "dge",
       "batteryCapacity": "50",
-      "updatedAt": 1776714574599
+      "updatedAt": 1777748242999
     },
     "0x8a8fca75b671077cd4db0cdb3eaae0982e174b5b": {
       "address": "0x8A8fCa75b671077CD4dB0cDB3EaaE0982e174b5B",
       "name": "vikas",
       "email": "barupalrekha3@gmail.com",
       "evModel": "tesla",
-      "batteryCapacity": "50",
-      "updatedAt": 1776714372682
+      "batteryCapacity": "20",
+      "updatedAt": 1777748272027
     },
     "0xf16a2ade33a22edefb6f361e28bfd223a7aac9bf": {
       "address": "0xf16a2aDe33A22eDeFB6f361e28BFD223a7aac9bf",
-      "name": "lfjk",
+      "name": "v",
       "email": "23bcs263@iiitdmj.ac.in",
       "evModel": "dge",
       "batteryCapacity": "50",
-      "updatedAt": 1776716043908
+      "updatedAt": 1777140280205
     },
     "0x53005ba924a5b13ff47a65854bfb29a78d142fd0": {
       "address": "0x53005BA924A5B13ff47A65854BFB29A78d142fD0",
@@ -121,32 +121,208 @@
       "radiusKm": "3",
       "status": "BROADCASTING",
       "updatedAt": 1776715868757
+    },
+    "22": {
+      "id": "22",
+      "address": "0xf16a2aDe33A22eDeFB6f361e28BFD223a7aac9bf",
+      "kwhRequired": "20",
+      "tokenRate": "1000000000000000",
+      "lat": "23.176873",
+      "lng": "80.019346",
+      "radiusKm": "3",
+      "status": "BROADCASTING",
+      "updatedAt": 1777121968803
+    },
+    "23": {
+      "id": "23",
+      "address": "0x389f141512610d5Db0A55cA8924405Dc842AE0F1",
+      "kwhRequired": "20",
+      "tokenRate": "1000000000000000",
+      "lat": "23.176873",
+      "lng": "80.019346",
+      "radiusKm": "3",
+      "status": "BROADCASTING",
+      "updatedAt": 1777214583754
+    },
+    "24": {
+      "id": "24",
+      "address": "0x8A8fCa75b671077CD4dB0cDB3EaaE0982e174b5B",
+      "kwhRequired": "20",
+      "tokenRate": "1000000000000000",
+      "lat": "23.176873",
+      "lng": "80.019346",
+      "radiusKm": "3",
+      "status": "BROADCASTING",
+      "updatedAt": 1777215243541
+    },
+    "25": {
+      "id": "25",
+      "address": "0x8A8fCa75b671077CD4dB0cDB3EaaE0982e174b5B",
+      "kwhRequired": "20",
+      "tokenRate": "1000000000000000",
+      "lat": "23.176873",
+      "lng": "80.019346",
+      "radiusKm": "3",
+      "status": "BROADCASTING",
+      "updatedAt": 1777215712629
+    },
+    "26": {
+      "id": "26",
+      "address": "0x8A8fCa75b671077CD4dB0cDB3EaaE0982e174b5B",
+      "kwhRequired": "20",
+      "tokenRate": "1000000000000000",
+      "lat": "23.177384",
+      "lng": "80.024333",
+      "radiusKm": "3",
+      "status": "BROADCASTING",
+      "updatedAt": 1777216590636
+    },
+    "27": {
+      "id": "27",
+      "address": "0x8A8fCa75b671077CD4dB0cDB3EaaE0982e174b5B",
+      "kwhRequired": "20",
+      "tokenRate": "1000000000000000",
+      "lat": "23.176926",
+      "lng": "80.019791",
+      "radiusKm": "3",
+      "status": "BROADCASTING",
+      "updatedAt": 1777218637677
+    },
+    "28": {
+      "id": "28",
+      "address": "0x8A8fCa75b671077CD4dB0cDB3EaaE0982e174b5B",
+      "kwhRequired": "20",
+      "tokenRate": "1000000000000000",
+      "lat": "23.176873",
+      "lng": "80.019346",
+      "radiusKm": "3",
+      "status": "BROADCASTING",
+      "updatedAt": 1777233582094
+    },
+    "29": {
+      "id": "29",
+      "address": "0x8A8fCa75b671077CD4dB0cDB3EaaE0982e174b5B",
+      "kwhRequired": "20",
+      "tokenRate": "1000000000000000",
+      "lat": "23.176873",
+      "lng": "80.019346",
+      "radiusKm": "3",
+      "status": "BROADCASTING",
+      "updatedAt": 1777237802101
+    },
+    "30": {
+      "id": "30",
+      "address": "0x8A8fCa75b671077CD4dB0cDB3EaaE0982e174b5B",
+      "kwhRequired": "20",
+      "tokenRate": "1000000000000000",
+      "lat": "23.176873",
+      "lng": "80.019346",
+      "radiusKm": "3",
+      "status": "BROADCASTING",
+      "updatedAt": 1777238260964
+    },
+    "31": {
+      "id": "31",
+      "address": "0x8A8fCa75b671077CD4dB0cDB3EaaE0982e174b5B",
+      "kwhRequired": "20",
+      "tokenRate": "1000000000000000",
+      "lat": null,
+      "lng": null,
+      "radiusKm": "3",
+      "status": "BROADCASTING",
+      "updatedAt": 1777239808879
+    },
+    "32": {
+      "id": "32",
+      "address": "0x8A8fCa75b671077CD4dB0cDB3EaaE0982e174b5B",
+      "kwhRequired": "20",
+      "tokenRate": "1000000000000000",
+      "lat": "23.175984",
+      "lng": "80.026558",
+      "radiusKm": "3",
+      "status": "BROADCASTING",
+      "updatedAt": 1777270523239
+    },
+    "33": {
+      "id": "33",
+      "address": "0x8A8fCa75b671077CD4dB0cDB3EaaE0982e174b5B",
+      "kwhRequired": "20",
+      "tokenRate": "1000000000000000",
+      "lat": null,
+      "lng": null,
+      "radiusKm": "3",
+      "status": "BROADCASTING",
+      "updatedAt": 1777747649221
+    },
+    "34": {
+      "id": "34",
+      "address": "0x8A8fCa75b671077CD4dB0cDB3EaaE0982e174b5B",
+      "kwhRequired": "20",
+      "tokenRate": "1000000000000000",
+      "lat": "23.176926",
+      "lng": "80.019791",
+      "radiusKm": "3",
+      "status": "BROADCASTING",
+      "updatedAt": 1777748310242
+    },
+    "35": {
+      "id": "35",
+      "address": "0x8A8fCa75b671077CD4dB0cDB3EaaE0982e174b5B",
+      "kwhRequired": "20",
+      "tokenRate": "1000000000000000",
+      "lat": "23.177371",
+      "lng": "80.024294",
+      "radiusKm": "3",
+      "status": "BROADCASTING",
+      "updatedAt": 1777748895659
+    },
+    "36": {
+      "id": "36",
+      "address": "0x8A8fCa75b671077CD4dB0cDB3EaaE0982e174b5B",
+      "kwhRequired": "20",
+      "tokenRate": "1000000000000000",
+      "lat": "23.176873",
+      "lng": "80.019346",
+      "radiusKm": "3",
+      "status": "BROADCASTING",
+      "updatedAt": 1777749544911
+    },
+    "37": {
+      "id": "37",
+      "address": "0x8A8fCa75b671077CD4dB0cDB3EaaE0982e174b5B",
+      "kwhRequired": "20",
+      "tokenRate": "1000000000000000",
+      "lat": "23.176873",
+      "lng": "80.019346",
+      "radiusKm": "3",
+      "status": "BROADCASTING",
+      "updatedAt": 1777750384727
     }
   },
   "profiles": {
     "0x389f141512610d5db0a55ca8924405dc842ae0f1": {
       "address": "0x389f141512610d5Db0A55cA8924405Dc842AE0F1",
-      "name": "lfjk",
+      "name": "v",
       "email": "23bcs263@iiitdmj.ac.in",
       "evModel": "dge",
       "batteryCapacity": "50",
-      "updatedAt": 1776714574600
+      "updatedAt": 1777748243002
     },
     "0x8a8fca75b671077cd4db0cdb3eaae0982e174b5b": {
       "address": "0x8A8fCa75b671077CD4dB0cDB3EaaE0982e174b5B",
       "name": "vikas",
       "email": "barupalrekha3@gmail.com",
       "evModel": "tesla",
-      "batteryCapacity": "50",
-      "updatedAt": 1776714372683
+      "batteryCapacity": "20",
+      "updatedAt": 1777748272031
     },
     "0xf16a2ade33a22edefb6f361e28bfd223a7aac9bf": {
       "address": "0xf16a2aDe33A22eDeFB6f361e28BFD223a7aac9bf",
-      "name": "lfjk",
+      "name": "v",
       "email": "23bcs263@iiitdmj.ac.in",
       "evModel": "dge",
       "batteryCapacity": "50",
-      "updatedAt": 1776716043910
+      "updatedAt": 1777140280207
     },
     "0x53005ba924a5b13ff47a65854bfb29a78d142fd0": {
       "address": "0x53005BA924A5B13ff47A65854BFB29A78d142fD0",
@@ -204,11 +380,198 @@
     },
     "21": {
       "started": true,
+      "completed": false,
+      "soc": 15,
+      "paymentTxHash": "0x8372dc110dc1109716959e611e771054aa226056904ed18ca347bba6e0475f5b",
+      "updatedAt": 1777119598979,
+      "completedAt": null,
+      "source": "raspberry-pi"
+    },
+    "23": {
+      "started": true,
       "completed": true,
       "soc": 100,
-      "paymentTxHash": "0x8372dc110dc1109716959e611e771054aa226056904ed18ca347bba6e0475f5b",
-      "updatedAt": 1776715960389,
-      "completedAt": 1776715949787
+      "paymentTxHash": "0x149c70b931a0adb532a72c546f2943286b1026437aa80cd0a4d5906da0b4f91e",
+      "updatedAt": 1777214724519,
+      "completedAt": 1777214714981
+    },
+    "24": {
+      "started": true,
+      "completed": true,
+      "soc": 100,
+      "paymentTxHash": "0x659cd92b59883ea762318c05b3fdc013a97634968a5e7dcbeaa8cb3a4f0b07ff",
+      "updatedAt": 1777215590755,
+      "completedAt": 1777215581146
+    },
+    "25": {
+      "started": true,
+      "completed": true,
+      "soc": 100,
+      "paymentTxHash": "0xe134706a16b7dabd894640b99212c2eac8a3b10afebe2c6446d4e19ca0c1ae60",
+      "updatedAt": 1777216047510,
+      "completedAt": 1777216033371
+    },
+    "26": {
+      "started": true,
+      "completed": true,
+      "soc": 100,
+      "paymentTxHash": "0x7548bdbb3ec924cfb56d4f451afcd0bc8f70c26f0a188e92814bbe02e513b78f",
+      "updatedAt": 1777216740470,
+      "completedAt": 1777216730065
+    },
+    "27": {
+      "started": true,
+      "completed": true,
+      "soc": 100,
+      "paymentTxHash": "0x202cc9ad8e7324d46319a4332f9c89fbc2796c2ee380085eb47e1b14edfcbc61",
+      "updatedAt": 1777218731515,
+      "completedAt": 1777218722000
+    },
+    "28": {
+      "started": true,
+      "completed": true,
+      "soc": 100,
+      "telemetry": {
+        "voltage": 236,
+        "current": 15,
+        "power": 3540,
+        "timestamp": "1:31:37 AM",
+        "source": "sim"
+      },
+      "paymentTxHash": "0x90213c9f37bdad46ff280788e194201dff4e529bcafcc1574d544161cf5459d5",
+      "updatedAt": 1777233720433,
+      "completedAt": 1777233697946
+    },
+    "29": {
+      "started": true,
+      "completed": true,
+      "soc": 100,
+      "telemetry": {
+        "voltage": 236,
+        "current": 15,
+        "power": 3540,
+        "timestamp": "2:41:50 AM",
+        "source": "sim"
+      },
+      "paymentTxHash": "0x24a26b5219d927480d952d3b183452e5ecb9bb20f6ebdf7f8945d539820b4fbd",
+      "updatedAt": 1777237919667,
+      "completedAt": 1777237910671
+    },
+    "30": {
+      "started": true,
+      "completed": true,
+      "soc": 100,
+      "telemetry": {
+        "voltage": 236,
+        "current": 15,
+        "power": 3540,
+        "timestamp": "2:49:37 AM",
+        "source": "sim"
+      },
+      "paymentTxHash": "0x159d590138bacbf94ba395d0afb8f3eaafd65ee87f87a0e062f80abb7654ab0e",
+      "updatedAt": 1777238391158,
+      "completedAt": 1777238377702
+    },
+    "31": {
+      "started": true,
+      "completed": true,
+      "soc": 100,
+      "telemetry": {
+        "voltage": 236,
+        "current": 15,
+        "power": 3540,
+        "timestamp": "3:15:29 AM",
+        "source": "sim"
+      },
+      "paymentTxHash": "0x4436af7107f4bd20817e8fab3b7b244ba8ad8258dcb8cc693dc5214a97b36f3d",
+      "updatedAt": 1777239964144,
+      "completedAt": 1777239929792
+    },
+    "32": {
+      "started": true,
+      "completed": true,
+      "soc": 100,
+      "telemetry": {
+        "voltage": 236,
+        "current": 15,
+        "power": 3540,
+        "timestamp": "11:47:43 AM",
+        "source": "sim"
+      },
+      "paymentTxHash": "0x3f7936399d7c9c1c7507e4bcfde107c223bc16a3ee08676939f3e9e95efd39c2",
+      "updatedAt": 1777270673816,
+      "completedAt": 1777270663018
+    },
+    "34": {
+      "started": true,
+      "completed": true,
+      "soc": 100,
+      "telemetry": {
+        "voltage": 236,
+        "current": 15,
+        "power": 3540,
+        "timestamp": "12:30:41 AM",
+        "source": "sim"
+      },
+      "paymentTxHash": "0x18895272c51143f82d2f05adef748f109ec61ed1a699b89641568e867a4a2afc",
+      "updatedAt": 1777748450860,
+      "completedAt": 1777748441145
+    },
+    "35": {
+      "started": true,
+      "completed": true,
+      "soc": 100,
+      "telemetry": {
+        "voltage": 236,
+        "current": 15,
+        "power": 3540,
+        "timestamp": "12:39:54 AM",
+        "source": "sim"
+      },
+      "paymentTxHash": "0x8a8e8da72b9783a19c54b3820e76019648b3959b66812961d280776c49ea2656",
+      "updatedAt": 1777749004731,
+      "completedAt": 1777748994176
+    },
+    "36": {
+      "started": true,
+      "completed": true,
+      "soc": 100,
+      "telemetry": {
+        "voltage": 236,
+        "current": 15,
+        "power": 3540,
+        "timestamp": "12:50:51 AM",
+        "source": "sim"
+      },
+      "paymentTxHash": "0xb809cfc23c692577a6023640356333dcd963629b5f6ba6cfec76b8b35e778e40",
+      "updatedAt": 1777749665127,
+      "completedAt": 1777749651793
+    },
+    "37": {
+      "started": true,
+      "completed": true,
+      "soc": 100,
+      "telemetry": {
+        "voltage": 236,
+        "current": 15,
+        "power": 3540,
+        "timestamp": "1:05:30 AM",
+        "source": "sim"
+      },
+      "paymentTxHash": "0x4ed108753a8b013ba4f94df00ef6d8d6d233a79fb0817a403c59775cc4e74b4a",
+      "updatedAt": 1777750552200,
+      "completedAt": 1777750530529
+    }
+  },
+  "telemetry": {
+    "latest": {
+      "voltage": 12,
+      "current": 1.02,
+      "power": 12.24,
+      "timestamp": "21:27:00",
+      "requestId": null,
+      "receivedAt": 1777219020458,
+      "updatedAt": 1777219020458
     }
   }
 }
