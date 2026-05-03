@@ -35,7 +35,7 @@ const {
 require("dotenv").config();
 
 const app = express();
-const port = Number(process.env.BACKEND_PORT || 4000);
+const port = Number(process.env.PORT || process.env.BACKEND_PORT || 4000);
 const ADMIN_WALLET = "0x389f141512610d5Db0A55cA8924405Dc842AE0F1".toLowerCase();
 const CONTROL_SERVER_BASE_URL = process.env.CONTROL_SERVER_URL || "http://127.0.0.1:5000";
 const CONTROL_SERVER_ON_PATH = process.env.CONTROL_SERVER_ON_PATH || "/on";
