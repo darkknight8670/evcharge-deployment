@@ -407,9 +407,14 @@ app.get("/api/profile/:address", async (req, res) => {
     res.json({
       localProfile,
       chainProfile,
+      chainError: null,
     });
   } catch (error) {
-    res.status(500).json({ error: error.message });
+    res.json({
+      localProfile: getProfile(req.params.address),
+      chainProfile: null,
+      chainError: error.message,
+    });
   }
 });
 
